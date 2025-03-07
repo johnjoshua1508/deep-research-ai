@@ -1,0 +1,307 @@
+/* Base styles */
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Chat history items */
+.chat-item {
+  @apply transition-all duration-200 border border-transparent;
+  position: relative;
+}
+
+.chat-item:hover {
+  @apply bg-gray-50 border-gray-200;
+}
+
+.chat-item.active {
+  @apply bg-indigo-50 border-indigo-200;
+}
+
+.chat-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  @apply bg-gradient-to-b from-indigo-600 to-purple-600;
+}
+
+/* Analysis content */
+.analysis-content {
+  @apply rounded-xl border border-gray-200 shadow-sm;
+  background: linear-gradient(to bottom, #ffffff, #f9fafb);
+}
+
+.analysis-content h2 {
+  @apply text-2xl font-bold text-gray-900 mb-6 pb-4 border-b border-gray-200;
+  background: linear-gradient(to right, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.analysis-content p {
+  @apply text-gray-700 leading-relaxed mb-6;
+  font-size: 1.0625rem;
+}
+
+/* Citations */
+.citation {
+  @apply inline-flex items-center px-2 py-0.5 rounded-md text-sm font-medium transition-all duration-200;
+  background: linear-gradient(to right, rgba(79, 70, 229, 0.1), rgba(124, 58, 237, 0.1));
+  color: #4f46e5;
+}
+
+.citation:hover {
+  @apply transform -translate-y-0.5;
+  background: linear-gradient(to right, rgba(79, 70, 229, 0.15), rgba(124, 58, 237, 0.15));
+}
+
+/* Reference items */
+.reference-item {
+  @apply rounded-lg border border-gray-200 transition-all duration-200 hover:border-indigo-200 hover:shadow-md;
+  background: linear-gradient(to bottom right, #ffffff, #f9fafb);
+}
+
+.reference-item:hover {
+  @apply transform -translate-y-0.5;
+}
+
+/* Progress bar animation */
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.progress-bar-animate {
+  animation: progress 2s ease-in-out;
+}
+
+/* Spinner animation */
+.spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid #e5e7eb;
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Research status */
+.research-status {
+  @apply flex items-center justify-center p-4 rounded-lg;
+  background: linear-gradient(to right, rgba(79, 70, 229, 0.05), rgba(124, 58, 237, 0.05));
+}
+
+/* Research completion styles */
+.research-complete {
+  @apply rounded-lg border border-green-200 bg-green-50 p-4 mb-4;
+}
+
+/* Word count and metadata */
+.metadata {
+  @apply text-sm text-gray-500 flex items-center space-x-4 mb-6;
+}
+
+.metadata-item {
+  @apply flex items-center;
+}
+
+.metadata-item i {
+  @apply mr-2 text-gray-400;
+}
+
+/* Custom gradients */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(to right, #4f46e5, #7c3aed);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Prose styling for analysis content */
+.prose {
+  @apply max-w-none;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold text-gray-900 mt-8 mb-4;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold text-gray-800 mt-6 mb-3;
+}
+
+.prose p {
+  @apply text-gray-700 leading-relaxed mb-4;
+}
+
+.prose ul {
+  @apply list-disc pl-6 space-y-2 mb-4;
+}
+
+.prose ul li {
+  @apply text-gray-700;
+}
+
+/* Modal styling */
+.modal-backdrop {
+  @apply fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity;
+}
+
+.modal-content {
+  @apply bg-white rounded-xl shadow-2xl transform transition-all;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium px-4 py-2 rounded-lg 
+           hover:opacity-90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-700 font-medium px-4 py-2 rounded-lg 
+           hover:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500;
+}
+
+/* Input styles */
+.input-primary {
+  @apply w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 
+           transition-colors duration-200 placeholder-gray-400;
+}
+
+/* Status badges */
+.status-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.status-badge-completed {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-badge-in-progress {
+  @apply bg-indigo-100 text-indigo-800;
+}
+
+/* Transitions */
+.transition-all {
+  @apply transition-all duration-200;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 1280px) {
+  #right-sidebar {
+    @apply w-80;
+  }
+}
+
+@media (max-width: 1024px) {
+  #left-sidebar {
+    @apply w-64;
+  }
+}
+
+/* Toast Notification */
+#toast {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(to right, #10b981, #059669);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 50;
+}
+
+#toast > div {
+  transition: all 0.2s ease-in-out;
+}
+
+/* AI Disclaimer */
+#ai-disclaimer {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.05), rgba(99, 102, 241, 0.05));
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Settings Button */
+#settings-btn {
+  transition: all 0.2s ease-in-out;
+}
+
+#settings-btn:hover {
+  background: linear-gradient(to right, rgba(79, 70, 229, 0.1), rgba(124, 58, 237, 0.1));
+}
+
+/* Model Description */
+#model-description {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-top: 0.5rem;
+  min-height: 48px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Settings Modal */
+#settings-modal .bg-white {
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+/* Button hover effects */
+#save-settings-btn:hover {
+  transform: translateY(-1px);
+}
+
+#cancel-settings-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Modal backdrop blur */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+}
+
